@@ -35,7 +35,7 @@ func (p Provider) Send(to, from, subject, message string) error {
 	serverPort := server + ":" + port
 	err := smtp.SendMail(serverPort, auth, from, []string{to}, msg)
 	if err != nil {
-		log.Printf("Error sending email with Amazon, %s", err)
+		log.Println("Error sending email with Amazon,", err)
 		return err
 	}
 	log.Println("Succeeded sending email with Amazon")

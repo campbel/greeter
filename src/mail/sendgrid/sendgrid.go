@@ -34,7 +34,7 @@ func (p Provider) Send(to, from, subject, message string) error {
 	msg.SetFrom(from)
 	err := sg.Send(msg)
 	if err != nil {
-		log.Printf("Error sending email with SendGrid, %s", err)
+		log.Println("Error sending email with SendGrid,", err)
 		return err
 	}
 	log.Println("Succeeded sending email with SendGrid")

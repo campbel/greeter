@@ -9,7 +9,7 @@ import (
 var greetingTemplate = template.Must(template.New("greeting").Parse(greetingTemplateHTML))
 
 const greetingTemplateHTML = `
-<h1>Greetings from {{.FirstName}} {{.LastName}}</h1>
+<h1>Greetings {{.FirstName}} {{.LastName}}!</h1>
 <p>I hope you have a great time on this special day!</p>
 `
 

@@ -45,6 +45,11 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	var g greeting
 	readBody(r, &g)
 
+	if g.Email == "" {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
 	message, err := getGreetingMessage(g)
 	if err != nil {
 		http.Error(w, failureMessage, http.StatusInternalServerError)
